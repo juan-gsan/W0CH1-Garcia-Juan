@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  font-size: 1rem;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 128, 0, 0.551);
+}
+
+header img {
+  max-width: 80px;
+  max-height: 80px;
+  margin-bottom: 50px;
+}
+
+.main-container {
+  width: 80vw;
+  height: 60vh;
+  margin: 0 auto;
+}
+
+.cards-container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cards-container div {
+  max-width: 350px;
+  max-height: 500px;
+}
+
+.card {
+  padding-bottom: 60px;
+}
+
+.card-1,
+.card-2 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.player-board {
+  text-align: center;
+}
+
+button {
+  font-size: inherit;
+  border-radius: 10px;
+  background-color: green;
+  border: 2px solid darkgreen;
+  color: white;
+}
+
+.player-board div {
+  display: block;
+  margin-bottom: 30px;
+}
+
+.next-card,
+.higher,
+.lower {
+  padding: 10px;
+  margin-top: 20px;
+}
+.higher,
+.lower {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.player-board span {
+  padding: 40px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
