@@ -58,6 +58,7 @@ const getRandomCard = () => {
     randomCard = cards[Math.floor(Math.random() * cards.length)];
     previousCard = randomCard;
     firstCard.textContent = previousCard.card;
+    secondCard.textContent = "Higher or Lower?";
     return previousCard.value;
   });
 };
@@ -68,6 +69,25 @@ const getCurrentHigherCard = () => {
       currentCard = cards[Math.floor(Math.random() * cards.length)];
       secondCard.textContent = currentCard.card;
       clickHigher = true;
+      if (currentCard.value < previousCard.value && clickLower === true) {
+        points++;
+        return (document.querySelector(".counter").textContent =
+          Number(document.querySelector(".counter").textContent) + 1);
+      }
+
+      if (currentCard.value < previousCard.value && clickLower === false) {
+        return;
+      }
+
+      if (currentCard.value > previousCard.value && clickHigher === true) {
+        points++;
+        return (document.querySelector(".counter").textContent =
+          Number(document.querySelector(".counter").textContent) + 1);
+      }
+
+      if (currentCard.value > previousCard.value && clickHigher === false) {
+        return;
+      }
       return currentCard.value;
     }
   });
@@ -79,49 +99,28 @@ const getCurrentLowerCard = () => {
       currentCard = cards[Math.floor(Math.random() * cards.length)];
       secondCard.textContent = currentCard.card;
       clickLower = true;
+      if (currentCard.value < previousCard.value && clickLower === true) {
+        points++;
+        return (document.querySelector(".counter").textContent =
+          Number(document.querySelector(".counter").textContent) + 1);
+      }
+
+      if (currentCard.value < previousCard.value && clickLower === false) {
+        return;
+      }
+
+      if (currentCard.value > previousCard.value && clickHigher === true) {
+        points++;
+        return (document.querySelector(".counter").textContent =
+          Number(document.querySelector(".counter").textContent) + 1);
+      }
+
+      if (currentCard.value > previousCard.value && clickHigher === false) {
+        return;
+      }
       return currentCard.value;
     }
   });
-};
-
-const showRanking = () => {
-  alert(
-    `You made ${points} points, in ${rounds} rounds.\nThank you for playing with us!`
-  );
-};
-
-const playAgain = () => {
-  newRound = confirm("Play again?");
-  if (newRound === true) {
-    getRandomCard();
-    getCurrentCard();
-    playCard();
-    playAgain();
-  } else {
-    showRanking();
-  }
-};
-
-playCard = () => {
-  if (currentCard.value < previousCard.value && clickLower === true) {
-    points++;
-    return (document.querySelector(".counter").textContent =
-      Number(document.querySelector(".counter").textContent) + 1);
-  }
-
-  if (currentCard.value < previousCard.value && clickLower === false) {
-    return;
-  }
-
-  if (currentCard.value > previousCard.value && clickHigher === true) {
-    points++;
-    return (document.querySelector(".counter").textContent =
-      Number(document.querySelector(".counter").textContent) + 1);
-  }
-
-  if (currentCard.value > previousCard.value && clickHigher === false) {
-    return;
-  }
 };
 
 let randomCard;
@@ -140,5 +139,3 @@ let secondCard = document.querySelector(".card-2");
 getRandomCard();
 getCurrentHigherCard();
 getCurrentLowerCard();
-//playCard();
-//playAgain();
